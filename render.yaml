@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: connected-franchise-draft
+    runtime: node
+    buildCommand: ""
+    startCommand: node server.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: DATA_DIR
+        value: /opt/render/project/src/data
+    disk:
+      name: draft-room-data
+      mountPath: /opt/render/project/src/data
+      sizeGB: 1
